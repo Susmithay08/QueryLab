@@ -9,7 +9,7 @@ Write and run SQL against 4 sample databases. AI explains queries, suggests opti
 ![Preview](5.png)
 
 ---
-FRONTEND_URL = 
+FRONTEND_URL = https://querylab1.onrender.com
 
 ## Sample Databases
 - **E-Commerce** — customers, orders, products, categories, order_items
