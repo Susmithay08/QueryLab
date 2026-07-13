@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from pathlib import Path
 from contextlib import asynccontextmanager
 from app.core.database import init_db
 from app.services.sample_dbs import ensure_sample_dbs
@@ -32,3 +34,6 @@ app.include_router(query.router, prefix="/api", tags=["query"])
 @app.get("/api/health")
 async def health():
     return {"status": "ok", "service": "QueryLab"}
+
+frontend_dist = Path(__file__).resolve().parent.parent.parent / "frontend" / "dist"
+app.mount("/", StaticFiles(directory=frontend_dist, html=True), name="static")
